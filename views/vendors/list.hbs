@@ -1,0 +1,46 @@
+<h1>{{title}}</h1>
+
+<table class="table" id="example">
+    <thead class="thead-light">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each vendors}}
+        <tr>
+            <td>
+                <a href="/vendors/invoices/vendor/{{_id}}">
+                    {{name}}
+                </a>
+            </td>
+            <td>{{description}}</td>
+            <td>{{address}}</td>
+            <td>{{phone}}</td>
+            <td>
+                <a href="/vendors/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit" style="color:navy;"></i>
+                </a>
+            </td>
+            <td>
+                <form action="/vendors/delete/{{_id}}/" method="GET">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-trash" style="color: red"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br><br>
+{{> _messages}}
+<div class="fixed-action-btn">
+    <a href="/vendors/new" class="btn btn-primary">
+        <i class="fas fa-plus"></i> New Vendor</a>
+</div>

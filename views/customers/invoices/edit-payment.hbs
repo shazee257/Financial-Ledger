@@ -1,0 +1,27 @@
+{{!-- Edit Payment Form --}}
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h2 class="text-center mb-3"><i class="fas fa-edit"></i> Edit Payment Transaction</h2>
+            <br>
+            {{> _messages}}
+            <form action="/customers/invoices/payment/edit/{{transaction._id}}" method="POST">
+                <div class="form-group">
+                    <label for="invoice">Invoice #</label>
+                    <input type="text" id="number" name="number" class="form-control" value="{{number}}" disabled />
+                </div>
+                <div class="form-group">
+                    <label for="date">Transaction Date</label>
+                    <input type="date" id="date" name="date" class="form-control"
+                        value="{{formatDate transaction.date 'YYYY-MM-DD'}}" required />
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" name="amount" class="form-control" value="{{transaction.amount}}"
+                        required />
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

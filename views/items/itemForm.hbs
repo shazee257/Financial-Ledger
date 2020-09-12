@@ -1,0 +1,46 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h1 class="text-center mb-3"><i class="{{faIcon}}"></i> {{title}}</h1>
+            <br>
+            {{> _messages}}
+            <form action="{{route}}" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Item Name"
+                        value="{{item.name}}" />
+                </div>
+                <div class="form-group">
+                    <label for="unitPrice">Price</label>
+                    <input type="number" id="unitPrice" name="unitPrice" class="form-control"
+                        placeholder="Enter Unit Price" value="{{item.unitPrice}}" min="1" />
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category">
+
+                        {{#if item.category}}
+                        {{#each categories}}
+                        <option value="{{_id}}" {{selectedOption _id ../item.category}}>
+                            {{name}}</option>
+                        {{/each}}
+                        {{else}}
+                        {{#each categories}}
+                        <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                        {{/if}}
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" class="form-control" placeholder="Enter Quantity"
+                        value="{{item.quantity}}" min="0" />
+                </div>
+
+
+                <button type="submit" class="btn btn-primary btn-block">{{submit}}</button>
+            </form>
+        </div>
+    </div>
+</div>

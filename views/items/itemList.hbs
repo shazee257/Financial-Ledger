@@ -1,0 +1,42 @@
+<h1><i class="fas fa-database mr-2"></i>{{title}}</h1>
+<br>
+<table class="table" id="example">
+    <thead class="thead-light">
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each items}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{category.name}}</td>
+            <td>{{unitPrice}}</td>
+            <td>{{quantity}}</td>
+            <td>
+                <a href="/items/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit" style="color:navy;"></i>
+                </a>
+            </td>
+            <td>
+                <form action="/items/delete/{{_id}}/" method="GET">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-trash" style="color: red"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br><br>
+{{> _messages}}
+<div class="fixed-action-btn">
+    <a href="/items/new" class="btn btn-primary">
+        <i class="fas fa-plus"></i> New Item</a>
+</div>

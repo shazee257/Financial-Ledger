@@ -1,0 +1,17 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h1 class="text-center mb-3"><i class="{{faIcon}}"></i> {{title}}</h1>
+            <br>
+            {{> _messages}}
+            <form action="{{route}}" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Category Name"
+                        value="{{category.name}}" />
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">{{submit}}</button>
+            </form>
+        </div>
+    </div>
+</div>

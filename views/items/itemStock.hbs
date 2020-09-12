@@ -1,0 +1,40 @@
+<div class="row mt-5">
+    <div class="col-md-12 m-auto">
+        <div class="card card-body">
+            <h2 class="text-center mb-3"><i class="fab fa-buromobelexperte mr-2"></i>{{title}}</h2>
+            <br>
+            {{> _messages}}
+
+            <table class="table" id="example1">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Adjust Quantity</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each items}}
+                    <tr>
+                        <form action="/items/stock/{{_id}}" method="POST">
+                            <td>{{name}}</td>
+                            <td>{{category.name}}</td>
+                            <td>{{unitPrice}}</td>
+                            <td>{{quantity}}</td>
+                            <td><input type="number" name="quantity" min="-100" max="100"></td>
+                            <td>
+                                <input type="submit" value="  CLICK TO SET   " style="color:crimson">
+                                </submit>
+                            </td>
+                        </form>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

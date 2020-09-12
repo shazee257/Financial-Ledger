@@ -1,0 +1,46 @@
+<h1>{{title}}</h1>
+
+<table class="table" id="example">
+    <thead class="thead-light">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each customers}}
+        <tr>
+            <td>
+                <a href="/customers/invoices/customer/{{_id}}">
+                    {{name}}
+                </a>
+            </td>
+            <td>{{description}}</td>
+            <td>{{address}}</td>
+            <td>{{phone}}</td>
+            <td>
+                <a href="/customers/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit" style="color:navy;"></i>
+                </a>
+            </td>
+            <td>
+                <form action="/customers/delete/{{_id}}/" method="GET">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-trash" style="color: red"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<br><br>
+{{> _messages}}
+<div class="fixed-action-btn">
+    <a href="/customers/new" class="btn-floating btn-large waves-effect waves-light red">
+        <i class="fas fa-plus"></i></a>
+</div>

@@ -1,0 +1,78 @@
+<nav class="grey darken-3">
+    <div class="nav-wrapper container">
+        <div class="brand-logo" style="margin-left: 60px;">
+            <i class="fab fa-amazon-pay" style="color:violet;"></i>Financial Ledger
+        </div>
+        <a href="#" data-target=mobile-demo class="sidenav-trigger show-on-large">
+            <i class="fas fa-bars"></i></a>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/dashboard"><i class="fas fa-chart-line mr-2"></i>Dashboard</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    {{!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/dashboard" style="display: flex;">
+        <i class="fab fa-amazon-pay" style="color:violet;"> <span class="btn btn-info" style="font-family:Helvetica;">
+                Financial Ledger</span></i>
+    </a> --}}
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown dmenu">
+                <a class="nav-link dropdown-toggle btn btn-info pt-1" href="/vendors" id="navbardrop"
+                    data-toggle="dropdown" style="margin-right: 6px"><i class="fas fa-address-card"></i>
+                    Vendor
+                </a>
+                <div class="dropdown-menu sm-menu">
+                    <a class="dropdown-item" href="/vendors"><i class="fas fa-address-card"></i> List of Vendors</a>
+                    <a class="dropdown-item" href="/vendors/new"><i class="far fa-file-alt"></i> New Vendor</a>
+                    <a class="dropdown-item" href="/vendors/invoices"><i class="fas fa-file-invoice-dollar"></i> List of
+                        Invoices</a>
+                    <a class="dropdown-item" href="/vendors/invoices/new"><i class="far fa-file-alt"></i> New
+                        Invoice</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown dmenu">
+                <a class="nav-link dropdown-toggle btn btn-info pt-1" href="/customers" id="navbardrop"
+                    data-toggle="dropdown" style="margin-right: 6px"><i class="fas fa-address-card"></i>
+                    Customer
+                </a>
+                <div class="dropdown-menu sm-menu">
+                    <a class="dropdown-item" href="/customers"><i class="fas fa-address-card"></i> List of Customers</a>
+                    <a class="dropdown-item" href="/customers/new"><i class="far fa-file-alt"></i> New Customer</a>
+                    <a class="dropdown-item" href="/customers/invoices"><i class="fas fa-file-invoice-dollar"></i> List
+                        of Invoices</a>
+                    <a class="dropdown-item" href="/customers/invoices/new"><i class="far fa-file-alt"></i> New
+                        Invoice</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown dmenu">
+                <a class="nav-link dropdown-toggle btn btn-info pt-1" href="/items" id="navbardrop"
+                    data-toggle="dropdown" style="margin-right: 6px"><i class="fas fa-database"></i>
+                    Items
+                </a>
+                <div class="dropdown-menu sm-menu">
+                    <a class="dropdown-item" href="/items"><i class="fas fa-database"></i> List of Items</a>
+                    <a class="dropdown-item" href="/items/new"><i class="far fa-file-alt"></i> New Item</a>
+                    <a class="dropdown-item" href="/items/categories"><i class="fas fa-align-center"></i> Categories</a>
+                </div>
+            </li>
+        </ul>
+
+        <a href="/dashboard" class="mr-2 pt-1 btn btn-secondary"><i class="fas fa-chart-line mr-2"></i>Dashboard</a>
+        <a href="/logout" class="btn btn-primary pt-1"><i class="fas fa-sign-out-alt"></i>
+            Logout</a>
+
+    </div>
+</nav>
+
+
+
+<br>
+<br>

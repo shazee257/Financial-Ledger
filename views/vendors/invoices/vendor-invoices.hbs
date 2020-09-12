@@ -1,0 +1,85 @@
+<h1>{{title}}</h1>
+
+<table class="table" id="example">
+    <thead class="thead-light">
+        <tr>
+            <th>Invoice #</th>
+            <th>Date</th>
+            <th>Invoice Belongs To</th>
+            <th>Amount</th>
+            <th>Paid</th>
+            <th>Balance</th>
+            <th>Items</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each invoices}}
+        <tr>
+            <td><a href="/vendors/invoices/detail/{{number}}">{{number}}</a></td>
+            <td>{{formatDate date 'DD-MMM-YYYY'}}</td>
+            <td>{{vendor.name}}</td>
+            <td>{{invoiceAmount this}}</td>
+            <td>{{invoicePaidAmount this}}</td>
+            <td>{{invoiceDueAmount this}}</td>
+            <td>
+                <a href="/vendors/invoices/items/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-list" style="color:navy;"></i>
+                </a>
+            </td>
+            <td>
+                <a href="/vendors/invoices/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit" style="color:navy;"></i>
+                </a>
+            </td>
+            <td>
+                <form action="/vendors/invoices/delete/{{_id}}/" method="GET">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-trash" style="color: red"></i>
+                    </button>
+                </form>
+
+            </td>
+        </tr>
+
+        {{/each}}
+
+    </tbody>
+</table>
+<br><br>
+{{> _messages}}
+<br><br>
+<div class="fixed-action-btn">
+    <a href="/vendors/invoices/new" class="btn btn-primary">
+        <i class="fas fa-plus"></i> New Invoice</a>
+</div>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <td style="text-align: right;">
+                <h4>Total Amount</h4>
+            </td>
+            <td style="text-align: right;">
+                <h3>{{invoicesAmount invoices}}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                <h4>Total Paid Amount</h4>
+            </td>
+            <td style="text-align: right;">
+                <h3>{{invoicesPaidAmount invoices}}</h3>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                <h4>Total Balance Amount</h4>
+            </td>
+            <td style="text-align: right; color:red">
+                <h3>{{invoicesDueAmount invoices}}</h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
