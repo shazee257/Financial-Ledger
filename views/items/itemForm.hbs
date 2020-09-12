@@ -10,10 +10,36 @@
                     <input type="text" id="name" name="name" class="form-control" placeholder="Item Name"
                         value="{{item.name}}" />
                 </div>
+
                 <div class="form-group">
-                    <label for="unitPrice">Price</label>
+                    <label for="unit">M/Unit</label>
+                    <select id="unit" name="unit">
+                        {{#select item.unit}}
+                        <option value="kg." selected>kg.</option>
+                        <option value="ft.">ft.</option>
+                        <option value="mtr.">mtr.</option>
+                        <option value="Pcs.">Pcs.</option>
+                        <option value="ml.">ml.</option>
+                        <option value="Dozen">Dozen</option>
+                        <option value="Packs">Packs</option>
+                        {{/select}}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="unitPrice">Whole Sale Price</label>
                     <input type="number" id="unitPrice" name="unitPrice" class="form-control"
-                        placeholder="Enter Unit Price" value="{{item.unitPrice}}" min="1" />
+                        placeholder="Enter Whole Sale Price" value="{{item.unitPrice}}" min="1" />
+                </div>
+                <div class="form-group">
+                    <label for="retailPrice">Retail Price</label>
+                    <input type="number" id="retailPrice" name="retailPrice" class="form-control"
+                        placeholder="Enter Retail Price" value="{{item.retailPrice}}" min="1" />
+                </div>
+                <div class="form-group">
+                    <label for="partialPaymentPrice">Partial Payment Price</label>
+                    <input type="number" id="partialPaymentPrice" name="partialPaymentPrice" class="form-control"
+                        placeholder="Enter Partial Payment Price" value="{{item.partialPaymentPrice}}" min="1" />
                 </div>
                 <div class="form-group">
                     <label for="category">Category</label>
@@ -21,24 +47,15 @@
 
                         {{#if item.category}}
                         {{#each categories}}
-                        <option value="{{_id}}" {{selectedOption _id ../item.category}}>
-                            {{name}}</option>
+                        <option value="{{_id}}" {{selectedOption _id ../item.category}}>{{name}}</option>
                         {{/each}}
                         {{else}}
                         {{#each categories}}
                         <option value="{{_id}}">{{name}}</option>
                         {{/each}}
                         {{/if}}
-
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity" name="quantity" class="form-control" placeholder="Enter Quantity"
-                        value="{{item.quantity}}" min="0" />
-                </div>
-
-
                 <button type="submit" class="btn btn-primary btn-block">{{submit}}</button>
             </form>
         </div>

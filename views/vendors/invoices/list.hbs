@@ -9,7 +9,6 @@
             <th>Amount</th>
             <th>Paid</th>
             <th>Balance</th>
-            <th>Items</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -17,17 +16,12 @@
     <tbody>
         {{#each invoices}}
         <tr>
-            <td><a href="/vendors/invoices/detail/{{number}}">{{number}}</a></td>
+            <td><a href="/vendors/invoices/detail/{{_id}}">{{number}}</a></td>
             <td>{{formatDate date 'DD-MMM-YYYY'}}</td>
             <td>{{vendor.name}}</td>
-            <td>{{invoiceAmount this}}</td>
+            <td>{{amount}}</td>
             <td>{{invoicePaidAmount this}}</td>
             <td>{{invoiceDueAmount this}}</td>
-            <td>
-                <a href="/vendors/invoices/items/{{_id}}" class="btn btn-float">
-                    <i class="fas fa-list" style="color:navy;"></i>
-                </a>
-            </td>
             <td>
                 <a href="/vendors/invoices/edit/{{_id}}" class="btn btn-float">
                     <i class="fas fa-edit" style="color:navy;"></i>
@@ -50,9 +44,10 @@
 <br><br>
 {{> _messages}}
 <br><br>
+
 <div class="fixed-action-btn">
-    <a href="/vendors/invoices/new" class="btn btn-primary">
-        <i class="fas fa-plus"></i> New Invoice</a>
+    <a href="/vendors/invoices/new" class="btn-floating btn-large waves-effect waves-light red">
+        <i class="fas fa-plus"></i></a>
 </div>
 
 <table class="table">

@@ -4,13 +4,11 @@
     <thead class="thead-light">
         <tr>
             <th>Invoice #</th>
-            <th>Type</th>
             <th>Date</th>
-            <th>Belongs To</th>
+            <th>Invoice Belongs To</th>
             <th>Amount</th>
             <th>Paid</th>
             <th>Balance</th>
-            <th>Items</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -18,18 +16,12 @@
     <tbody>
         {{#each invoices}}
         <tr>
-            <td><strong><a href="/customers/invoices/detail/{{number}}">{{number}}</a></strong></td>
-            <td>{{customerType}}</td>
+            <td><a href="/customers/invoices/detail/{{_id}}">{{number}}</a></td>
             <td>{{formatDate date 'DD-MMM-YYYY'}}</td>
             <td>{{customer.name}}</td>
-            <td>{{invoiceAmount this}}</td>
+            <td>{{amount}}</td>
             <td>{{invoicePaidAmount this}}</td>
             <td>{{invoiceDueAmount this}}</td>
-            <td>
-                <a href="/customers/invoices/items/{{_id}}" class="btn btn-float">
-                    <i class="fas fa-list" style="color:navy;"></i>
-                </a>
-            </td>
             <td>
                 <a href="/customers/invoices/edit/{{_id}}" class="btn btn-float">
                     <i class="fas fa-edit" style="color:navy;"></i>
@@ -52,9 +44,10 @@
 <br><br>
 {{> _messages}}
 <br><br>
+
 <div class="fixed-action-btn">
     <a href="/customers/invoices/new" class="btn-floating btn-large waves-effect waves-light red">
-        <i class=" fas fa-plus"></i></a>
+        <i class="fas fa-plus"></i></a>
 </div>
 
 <table class="table">

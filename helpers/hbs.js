@@ -23,12 +23,6 @@ module.exports = {
     });
     return paid;
   },
-
-  selectedVendor: (id, id2) => {
-    if (id.toString() === id2.toString()) {
-      return `selected`;
-    }
-  },
   selectedOption: (id, id2) => {
     if (id.toString() === id2.toString()) {
       return `selected`;
@@ -47,32 +41,19 @@ module.exports = {
         ' selected="selected"$&'
       );
   },
-  // Invoice Amount
-  invoiceAmount: (invoice) => {
-    let amount = 0;
-    invoice.items.map((item) => {
-      amount += item.amount * item.quantity;
-    });
-    return amount;
-  }, // Due Amount per Invoice
+  // Due Amount per Invoice
   invoiceDueAmount: (invoice) => {
-    let amount = 0;
     let paid = 0;
-    invoice.items.map((item) => {
-      amount += item.amount * item.quantity;
-    });
     invoice.transactions.map((tr) => {
       paid += tr.amount;
     });
-    return amount - paid;
+    return invoice.amount - paid;
   },
   // Total Invoices Amount
   invoicesAmount: (invoices) => {
     let amount = 0;
     invoices.map((inv) => {
-      inv.items.map((item) => {
-        amount += item.amount * item.quantity;
-      });
+      amount += inv.amount;
     });
     return amount;
   },
@@ -81,7 +62,7 @@ module.exports = {
     let amount = 0;
     let paid = 0;
     invoices.map((inv) => {
-      inv.items.map((item) => (amount += item.amount * item.quantity));
+      amount += inv.amount;
       inv.transactions.map((tr) => (paid += tr.amount));
     });
     return amount - paid;

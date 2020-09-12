@@ -1,4 +1,4 @@
-<h1>Invoice # <a href="/customers/invoices/items/{{invoice._id}}">{{invoice.number}}</a> - {{invoice.customer.name}}
+<h1>Invoice # {{invoice.number}} - {{invoice.customer.name}}
 </h1>
 
 <table class="table" id="example">
@@ -16,14 +16,13 @@
             <td>{{formatDate date 'Do MMMM YYYY'}}</td>
             <td>{{amount}}</td>
             <td>
-                <a href="/customers/invoices/payment/edit/{{_id}}" class="btn btn-float">
+                <a href="/customers/invoices/payment/edit/{{_id}}" class="btn">
                     <i class="fas fa-edit"></i>
                 </a>
             </td>
             <td>
                 <form action="/customers/invoices/payment/delete/{{_id}}" method="GET" id="delete-form">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn red">
+                    <button type="submit" class="btn btn-danger">
                         <i class="fas fa-trash"></i>
                     </button>
                 </form>
@@ -48,7 +47,7 @@
                 <h4>Invoice Amount</h4>
             </td>
             <td style="text-align: right;">
-                <h4>{{invoiceAmount invoice}}</h4>
+                <h4>{{invoice.amount}}</h4>
             </td>
         </tr>
         <tr>
@@ -78,7 +77,7 @@
                 <h2 class="text-center mb-3"><i class="fab fa-amazon-pay"></i> New Payment Transaction</h2>
                 <br>
                 {{> _messages}}
-                <form action="/customers/invoices/payments/{{invoice.number}}" method="POST">
+                <form action="/customers/invoices/payments/{{invoice._id}}" method="POST">
                     <div class="form-group">
                         <label for="invoice">Invoice #</label>
                         <input type="text" id="number" name="number" class="form-control" value="{{invoice.number}}"

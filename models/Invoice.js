@@ -6,6 +6,14 @@ const invoiceSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  amount: {
+    type: Number,
+    required: true,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
   customer: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Customer",
@@ -14,18 +22,7 @@ const invoiceSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Vendor",
   },
-  items: [{ type: mongoose.Schema.Types.ObjectId, ref: "InvoiceItems" }],
   transactions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Transaction" }],
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  customerType: {
-    type: String,
-    required: true,
-    enum: ["WholeSaleCustomer", "PartialPaymentCustomer", "WalkInCustomer"],
-    default: "WalkInCustomer",
-  },
 });
 
 const Invoice = mongoose.model("Invoice", invoiceSchema);
